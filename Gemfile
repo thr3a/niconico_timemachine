@@ -49,7 +49,7 @@ gem "twitter-bootstrap-rails"
 gem "therubyracer"
 gem "slim-rails"
 gem 'bootstrap_form'
-gem 'capistrano'
+gem 'capistrano', "3.5.0"
 gem "capistrano-scm-gitcopy"
 gem 'capistrano-rails'
 gem 'capistrano-rbenv'
