@@ -1,0 +1,6 @@
+a.btn.btn-primary href='javascript:history.go(0)' ランダムに表示！
+.row
+  - @data.sample(8).each do |video|
+    .col-xs-12.col-md-6
+      .text-center
+        <iframe width='100%' height='200' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
