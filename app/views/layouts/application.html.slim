@@ -4,6 +4,16 @@ html
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta content="#{Myrails::Application.config.title}" name="title"
+    meta content="10年前の今日にニコ動にアップされた動画をピックアップ！" name="description"
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+    meta property="og:type" content="article"
+    meta property="og:title" content="#{Myrails::Application.config.title}"
+    meta property="og:site_name" content="#{Myrails::Application.config.title}"
+    meta property="og:description" content="10年前の今日にニコ動にアップされた動画をピックアップ！"
+    meta property="og:image" content="http://niconico.turai.work/image.png"
+    meta property="og:url" content="#{request.url}"
+    meta name="twitter:card" content="summary_large_image"
     title= content_for?(:title) ? yield(:title) : Myrails::Application.config.title
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
