@@ -1,0 +1,26 @@
+.alert.alert-info 投稿日が<b>#{Date.today.years_ago(10)}</b>の動画を表示しています。
+.row
+- @data.each.with_index(1) do |video, rank|
+  - case rank
+  - when 1
+    .col-xs-12
+      h1
+        span.label.label-danger 1位
+        | #{video['title']}
+      <iframe width='400' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
+      hr
+  - when 2..3
+    .col-xs-12
+      h2
+        span.label.label-warning #{rank}位
+        | #{video['title']}
+      <iframe width='312' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
+      hr
+  - when 4..10
+    .col-xs-12
+      h3 #{video['title']}
+      <iframe width='312' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
+      hr
+  - else
+    .col-xs-4
+      <iframe width='100%' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>

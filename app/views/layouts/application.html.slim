@@ -17,5 +17,7 @@ html
       div class="alert alert-#{type}"
         - Array(msg).each do |m|
           p = m
-    h1 = Myrails::Application.config.title
+    .jumbotron
+      h1 = Myrails::Application.config.title
+      p.lead 今日の10年前にニコ動に投稿された動画を振り返るサイトです。順位は現在の再生回数です
     = yield
