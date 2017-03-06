@@ -3,24 +3,29 @@
 - @data.each.with_index(1) do |video, rank|
   - case rank
   - when 1
-    .col-xs-12
-      h1
+    .text-center
+      h2
         span.label.label-danger 1位
         | #{video['title']}
-      <iframe width='400' height='200' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
-      hr
+    .col-xs-12.col-md-offset-3.col-md-6.text-center
+      <iframe width='100%' height='200' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
+    .clearfix
+    hr
   - when 2..3
-    .col-xs-12
+    .text-center
       h2
         span.label.label-warning #{rank}位
         | #{video['title']}
-      <iframe width='400' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
-      hr
+    .col-xs-12.col-md-offset-3.col-md-6.text-center
+      <iframe width='100%' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
+    .clearfix
+    hr
   - when 4..10
-    .col-xs-12
+    .col-xs-12.col-md-offset-3.col-md-6.text-center
       h3 #{video['title']}
-      <iframe width='400' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
-      hr
+      <iframe width='100%' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
+    .clearfix
+    hr
   - else
-    .col-xs-4
+    .col-xs-12.col-md-4
       <iframe width='100%' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
