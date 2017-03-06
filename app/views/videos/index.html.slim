@@ -7,19 +7,19 @@
       h1
         span.label.label-danger 1位
         | #{video['title']}
-      <iframe width='400' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
+      <iframe width='400' height='200' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
       hr
   - when 2..3
     .col-xs-12
       h2
         span.label.label-warning #{rank}位
         | #{video['title']}
-      <iframe width='312' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
+      <iframe width='400' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
       hr
   - when 4..10
     .col-xs-12
       h3 #{video['title']}
-      <iframe width='312' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
+      <iframe width='400' height='176' src='http://ext.nicovideo.jp/thumb/#{video['contentId']}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'><a href='http://www.nicovideo.jp/watch/#{video['contentId']}'>#{video['title']}</a></iframe>
       hr
   - else
     .col-xs-4
