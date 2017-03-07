@@ -26,17 +26,32 @@ html
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-TDV3SVV');
-  body
+  body style="padding-top:70px"
     - if Rails.env == 'production'
       noscript
       | <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDV3SVV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  .container
-    / = bootstrap_flash
-    - flash.each do |type, msg|
-      div class="alert alert-#{type}"
-        - Array(msg).each do |m|
-          p = m
-    .jumbotron
-      h1 = Myrails::Application.config.title
-      p.lead 10年前の今日にニコ動に投稿された動画を振り返るサイトです。※順位は現在の再生回数
-    = yield
+    nav.navbar.navbar-default.navbar-fixed-top#nico-navbar
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+            span.sr-only ナビゲーションの切替
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="#{root_path}"  #{Myrails::Application.config.title}
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li
+              = link_to 'ランキング', root_path
+            li
+              = link_to 'ランダム表示', videos_random_path
+    .container
+      / = bootstrap_flash
+      - flash.each do |type, msg|
+        div class="alert alert-#{type}"
+          - Array(msg).each do |m|
+            p = m
+      .jumbotron
+        h1 = Myrails::Application.config.title
+        p.lead <b>10年前の今日</b>にニコニコ動画に<b>投稿</b>された動画を振り返るサイトです。
+      = yield
