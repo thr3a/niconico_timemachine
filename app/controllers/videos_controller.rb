@@ -22,6 +22,7 @@ class VideosController < ApplicationController
       @data = JSON.parse(result.body)['data']
     end
   end
+  
   def random
     query_arrays = []
     query_arrays << (0..9).to_a
@@ -45,4 +46,11 @@ class VideosController < ApplicationController
       @data = JSON.parse(result.body)['data']
     end
   end
+  
+  def share
+    message = "10年前の今日に投稿された動画を集めました #{Myrails::Application.config.title}:http://niconico.turai.work"
+    url = "https://twitter.com/intent/tweet?text=#{URI.escape(message)}"
+    redirect_to url
+  end
+
 end

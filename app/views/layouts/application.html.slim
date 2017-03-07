@@ -53,5 +53,9 @@ html
             p = m
       .jumbotron
         h1 = Myrails::Application.config.title
-        p.lead <b>10年前の今日</b>にニコニコ動画に<b>投稿</b>された動画を振り返るサイトです。
+        p.lead <b>10年前の今日(#{Date.today.years_ago(10)})</b>にニコニコ動画に<b>投稿</b>された動画を振り返るサイトです。
+        <a class="btn btn-share-twitter btn-block" href='#{videos_share_path}'>
+          <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+          <div class="txt-share-twitter">サイトをツイート</div>
+        </a>
       = yield
