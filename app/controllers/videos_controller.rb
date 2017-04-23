@@ -14,8 +14,8 @@ class VideosController < ApplicationController
         fields: 'contentId,title,description,tags,categoryTags,viewCounter,startTime',
         _sort: '-viewCounter',
         _limit: 31,
-        'filters[startTime][gte]': Time.now.years_ago(10).strftime('%FT00:00:00+09:00'),
-        'filters[startTime][lt]': Time.now.years_ago(10).since(1.days).strftime('%FT00:00:00+09:00')
+        'filters[startTime][gte]': Date.tomorrow.years_ago(10).strftime('%FT00:00:00+09:00'),
+        'filters[startTime][lt]': Date.tomorrow.years_ago(10).since(1.days).strftime('%FT00:00:00+09:00')
       }}
     )
     if result.body
