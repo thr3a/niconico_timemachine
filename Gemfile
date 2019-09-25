@@ -46,7 +46,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "twitter-bootstrap-rails"
-gem "therubyracer"
+# gem "therubyracer"
 gem "slim-rails"
 gem 'bootstrap_form'
 gem 'capistrano', "3.5.0"
