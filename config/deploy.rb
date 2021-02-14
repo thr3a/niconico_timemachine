@@ -53,49 +53,20 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 
 namespace :deploy do
-
-  # after :restart, :clear_cache do
-  #   on roles(:web), in: :groups, limit: 3, wait: 10 do
-  #     # Here we can do anything such as:
-  #     # within release_path do
-  #     #   execute :rake, 'cache:clear'
-  #     # end
-  #   end
-  # end
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
-    end
-  end
-
-  after :publishing, :restart
-
   task :mkdir do
-    on roles(:app), in: :sequence, wait: 5 do
+    on roles(:app) do
       execute :sudo, :mkdir, '-p', "#{fetch(:deploy_to)}"
       execute :sudo, :chown, "#{fetch(:user)}:#{fetch(:user)}", "#{fetch(:deploy_to)}"
     end
   end
 
-  before :check, :mkdir
-
   task :upload do
-    on roles(:app), in: :sequence, wait: 5 do
+    on roles(:app) do
       fetch(:linked_files).each do |filename|
-        execute :mkdir, '-p', "#{File.dirname(filename)}"
+        execute :mkdir, '-p', "#{shared_path}/#{File.dirname(filename)}"
         upload!(filename, "#{shared_path}/#{filename}")
       end
     end
   end
-  desc 'Create Database'
-  task :db_create do
-    on roles(:db) do |host|
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'db:create'
-      end
-      end
-    end
-  end
+
 end
